@@ -5,7 +5,7 @@ import java.sql.Date;
 public class LivroDTO {
 	
 
-	private Integer id;
+	private Long id;
 	
 	private String titulo;
 	
@@ -17,11 +17,11 @@ public class LivroDTO {
 	
 	private String isbn;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
