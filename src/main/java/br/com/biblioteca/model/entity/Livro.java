@@ -1,43 +1,39 @@
 package br.com.biblioteca.model.entity;
 
-import java.sql.Date;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.sql.Date;
+import java.util.Objects;
 
 @Entity
-@Table(name="t_livro")
+@Table(name="t_livro", schema = "public")
 public class Livro {
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_livro")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="nm_titulo")
+
+	@Column(name="nm_titulo", nullable = false)
 	private String titulo;
 	
-	@Column(name="nm_autor")
+	@Column(name="nm_autor", nullable = false)
 	private String autor;
 	
-	@Column(name="nm_editora")
+	@Column(name="nm_editora", nullable = false)
 	private String editora;
 	
-	@Column(name="dt_publicacao")
+	@Column(name="dt_publicacao", nullable = false)
 	private Date publicacao;
 	
-	@Column(name="nr_isbn")
+	@Column(name="nr_isbn", nullable = false)
 	private String isbn;
 	
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitulo() {
@@ -69,6 +65,18 @@ public class Livro {
 	}
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
-	}	
-	
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Livro livro = (Livro) o;
+		return Objects.equals(id, livro.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

@@ -1,10 +1,9 @@
-package br.com.biblioteca.DTO;
+package br.com.biblioteca.dto;
 
 import java.sql.Date;
 
 public class LivroDTO {
 	
-
 	private Integer id;
 	
 	private String titulo;

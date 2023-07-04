@@ -1,4 +1,4 @@
-package br.com.biblioteca.model.reposity;
+package br.com.biblioteca.model.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
