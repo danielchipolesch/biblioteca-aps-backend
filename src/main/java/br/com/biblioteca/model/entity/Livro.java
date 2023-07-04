@@ -12,9 +12,16 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_livro")
+<<<<<<< HEAD
 	private Integer id;
 
 	@Column(name="nm_titulo", nullable = false)
+=======
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name="nm_titulo")
+>>>>>>> refs/remotes/origin/master
 	private String titulo;
 	
 	@Column(name="nm_autor", nullable = false)
@@ -30,10 +37,17 @@ public class Livro {
 	private String isbn;
 	
 	
+<<<<<<< HEAD
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
+=======
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+>>>>>>> refs/remotes/origin/master
 		this.id = id;
 	}
 	public String getTitulo() {

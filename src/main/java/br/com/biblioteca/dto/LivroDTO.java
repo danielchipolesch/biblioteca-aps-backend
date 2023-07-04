@@ -4,7 +4,12 @@ import java.sql.Date;
 
 public class LivroDTO {
 	
+<<<<<<< HEAD:src/main/java/br/com/biblioteca/dto/LivroDTO.java
 	private Integer id;
+=======
+
+	private Long id;
+>>>>>>> refs/remotes/origin/master:src/main/java/br/com/biblioteca/DTO/LivroDTO.java
 	
 	private String titulo;
 	
@@ -16,11 +21,11 @@ public class LivroDTO {
 	
 	private String isbn;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
