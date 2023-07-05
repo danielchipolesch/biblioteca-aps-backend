@@ -9,7 +9,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import br.com.biblioteca.model.entity.Livro;
-import br.com.biblioteca.model.repository.LivroRepository;
+import br.com.biblioteca.model.reposity.LivroRepository;
 import br.com.biblioteca.service.LivroService;
 import jakarta.transaction.Transactional;
 
