@@ -12,18 +12,16 @@ import br.com.biblioteca.model.entity.Livro;
 import br.com.biblioteca.service.LivroService;
 
 
-
 @RestController
 @RequestMapping("/api/v1/livros")
 public class LivroController {
-	
+
 	LivroService service;
 	
 	public LivroController(LivroService service) {
 		this.service = service;
 	}
 	
-
 	@GetMapping("/buscar")
 	public ResponseEntity<Object> buscar(
 			@RequestParam(value="titulo", required=false) String titulo,
