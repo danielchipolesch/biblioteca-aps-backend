@@ -6,24 +6,27 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.biblioteca.ExceptionHandler.RegraNegocioException;
 import br.com.biblioteca.dto.LivroDTO;
+import br.com.biblioteca.ExceptionHandler.RegraNegocioException;
 import br.com.biblioteca.model.entity.Livro;
 import br.com.biblioteca.service.LivroService;
 
 
+
 @RestController
 @RequestMapping("/api/v1/livros")
+@CrossOrigin(origins = "*")
 public class LivroController {
-
+	
 	LivroService service;
 	
 	public LivroController(LivroService service) {
 		this.service = service;
 	}
 	
+
 	@GetMapping("/buscar")
-	public ResponseEntity<Object> buscar(
+	public ResponseEntity buscar(
 			@RequestParam(value="titulo", required=false) String titulo,
 			@RequestParam(value="autor", required=false) String autor,
 			@RequestParam(value="editora", required=false) String editora
@@ -88,7 +91,7 @@ public class LivroController {
 	private Livro preencherLivroUpdate(LivroDTO livroDTO) {
 		Livro livro = service.obterPorId(livroDTO.getId()).get();
 
-		if (livroDTO != null) {
+		if (livroDTO != null || livro != null) {
 			if (livroDTO.getTitulo() != null) {
 				livro.setTitulo(livroDTO.getTitulo());
 			}
