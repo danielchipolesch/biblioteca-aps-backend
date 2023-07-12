@@ -53,19 +53,21 @@ public class LivroController {
 		}
 	}
 
-	@PutMapping(value = "/atualizarLivro/")
-	public ResponseEntity atualizaLivro(@RequestBody LivroDTO livroDTO) {
+/* O método abaixo foi sobrestado por não fazer parte do exercício */
 
-		return service.obterPorId(livroDTO.getId()).map(entity -> {
-			try {
-				Livro livro = preencherLivroUpdate(livroDTO);
-				service.atualizar(livro);
-				return ResponseEntity.ok(livro);
-			} catch (RegraNegocioException regraNegocioException) {
-				return ResponseEntity.badRequest().body(regraNegocioException.getMessage());
-			}
-		}).orElseGet(() -> ResponseEntity.badRequest().body("Falha ao atualizar o livro."));
-	}
+//	@PutMapping(value = "/atualizarLivro/")
+//	public ResponseEntity atualizaLivro(@RequestBody LivroDTO livroDTO) {
+//
+//		return service.obterPorId(livroDTO.getId()).map(entity -> {
+//			try {
+//				Livro livro = preencherLivroUpdate(livroDTO);
+//				service.atualizar(livro);
+//				return ResponseEntity.ok(livro);
+//			} catch (RegraNegocioException regraNegocioException) {
+//				return ResponseEntity.badRequest().body(regraNegocioException.getMessage());
+//			}
+//		}).orElseGet(() -> ResponseEntity.badRequest().body("Falha ao atualizar o livro."));
+//	}
 
 	@DeleteMapping(value = "/deletar/{id}")
 	public ResponseEntity deletar(@PathVariable("id") Integer id) {
